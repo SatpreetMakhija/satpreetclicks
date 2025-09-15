@@ -1,0 +1,21 @@
+---
+// Your component script here!
+import '../styles/global.css'
+
+const navLinks = [
+	{name: "Satpreet", href: "/"},
+	{name: "Collections", href: "/collections"},
+	{name: "About", href: "/about"}
+];
+---
+
+
+<!-- Use props and other variables from the component script: -->
+<header class="bg-[#f3b856] text-white p-4 flex flex-col items-center">
+  <nav class="mt-2 flex gap-4">
+	{navLinks.map(link=>(
+		<a href={link.href} class="hover:underline">{link.name}</a>	
+	))}
+  </nav>
+</header>
+
