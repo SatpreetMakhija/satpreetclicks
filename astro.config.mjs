@@ -7,6 +7,5 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()]  
 },
-	site: 'https://satpreetmakhija.github.io',
-	base: '/satpreetclicks',
+	site: 'https://portfolio.satpreetmakhija.com',
 });
