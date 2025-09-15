@@ -1,0 +1,24 @@
+---
+import Header from "../components/header.astro";
+const {
+  title = "Site",
+  background = undefined, // e.g. "/images/home-bg.jpg" or undefined
+} = Astro.props;
+
+const bodyStyle = background ? `background-image: url('${background}')` : undefined;
+const bodyClass = background ? "min-h-screen bg-cover bg-center" : "min-h-screen";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>{title}</title>
+  </head>
+  <body class={bodyClass} style={bodyStyle}>
+    <Header />
+    <main class="max-w-5xl mx-auto p-6">
+      <slot />
+    </main>
+  </body>
+</html>
+

@@ -9,9 +9,8 @@ const navLinks = [
 ];
 ---
 
-
 <!-- Use props and other variables from the component script: -->
-<header class="bg-[#f3b856] text-white p-4 flex flex-col items-center">
+<header class="text-black p-4 flex flex-col items-center">
   <nav class="mt-2 flex gap-4">
 	{navLinks.map(link=>(
 		<a href={link.href} class="hover:underline">{link.name}</a>	
