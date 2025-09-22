@@ -1,20 +1,77 @@
 ---
 // Your component script here!
-import '../styles/global.css'
+import "../styles/global.css";
 
 const navLinks = [
-	{name: "Satpreet", href: "/"},
-	{name: "Collections", href: "/collections"},
-	{name: "About", href: "/about"}
+	{ name: "Satpreet", href: "/" },
+	{ name: "Collections", href: "/collections" },
+	{ name: "About", href: "/about" },
 ];
 ---
 
 <!-- Use props and other variables from the component script: -->
-<header class="text-black p-4 flex flex-col items-center">
-  <nav class="mt-2 flex gap-4">
-	{navLinks.map(link=>(
-		<a href={link.href} class="hover:underline">{link.name}</a>	
-	))}
-  </nav>
+<header class="text-black p-4">
+	<!-- Desktop nav  -->
+	<div class="flex justify-center">
+		<nav class="hidden sm:flex gap-6">
+			{
+				navLinks.map((link) => (
+					<a
+						href={link.href}
+						class="hover:underline"
+					>
+						{link.name}
+					</a>
+				))
+			}
+		</nav>
+	</div>
+
+	<!-- Mobile hamburger -->
+	<button class="sm:hidden px-4 py-4" id="menu-button">
+		<!-- Simple hamburger icon -->
+		<span class="relative block w-5 h-[2px] bg-current">
+			<span
+				class="absolute -top-2 left-0 w-5 h-[2px] bg-current"
+			></span>
+			<span
+				class="absolute top-2 left-0 w-5 h-[2px] bg-current"
+			></span>
+		</span>
+	</button>
 </header>
 
+<!-- Mobile navigation -->
+<div id="mobile-nav" class="sm:hidden fixed bg-white inset-0 hidden">
+	<div id="panel" class="flex flex-col gap-6 p-10">
+		<button
+			id="menu-close-btn"
+			class="self-end rounded-lg border px-2 py-1"
+			aria-label="Close navigation">✕</button
+		>
+		<nav class="flex flex-col gap-6">
+			{
+				navLinks.map((link) => (
+					<a
+						href={link.href}
+						class="hover:underline"
+					>
+						{link.name}
+					</a>
+				))
+			}
+		</nav>
+	</div>
+</div>
+
+<script>
+	const menuBtn = document.querySelector("#menu-button");
+	const mobileNav = document.querySelector("#mobile-nav");
+	const menuCloseBtn = document.querySelector("#menu-close-btn");
+
+	function toggleNav(show) {
+		mobileNav.classList.toggle("hidden", !show);
+	}
+	menuBtn.addEventListener("click", () => toggleNav(true));
+	menuCloseBtn.addEventListener("click", () => toggleNav(false));
+</script>
