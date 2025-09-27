@@ -1,8 +1,8 @@
 ---
 // Welcome to Astro! Everything between these triple-dash code fences
 // is your "component frontmatter". It never runs in the browser.
-import BaseLayout from '../components/baseLayout.astro';
-import HorizontalGallery from '../components/horizontalGallery.astro';
+import BaseLayout from "../components/baseLayout.astro";
+import HorizontalGallery from "../components/horizontalGallery.astro";
 
 var commonImagesPath = "/images/";
 
@@ -10,14 +10,13 @@ const images = [
 	{ src: commonImagesPath + "portrait-dog-walking.jpg" },
 	{ src: commonImagesPath + "portrait-man-in-shadows.jpg" },
 	{ src: commonImagesPath + "portrait-woman-walking.jpg" },
-	{ src: commonImagesPath + "portrait-autos.jpg" },
-	{ src: commonImagesPath + "portrait-umbrella-man.jpg" },
-];
 
+	{ src: commonImagesPath + "portrait-auto-driver-sleep.jpg" },
+];
 ---
+
 <!-- Below is your "component template." It's just HTML, but with
     some magic sprinkled in to help you build great templates. -->
 <BaseLayout title="Collections">
-	<HorizontalGallery images={images} name="Streets"></HorizontalGallery>
+	<HorizontalGallery images={images} name="Streets" />
 </BaseLayout>
-
