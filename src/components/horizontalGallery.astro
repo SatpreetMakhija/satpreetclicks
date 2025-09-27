@@ -1,0 +1,52 @@
+---
+// Your component script here!
+import "../styles/global.css";
+
+const { images = [], name } = Astro.props;
+---
+
+<div class="p-2">
+	<h1 class="p-2">{name}</h1>
+	<div id="gallery-container" class="overflow-x-scroll flex gap-4">
+		{
+			images.map((image) => (
+				<figure
+					class="
+		shrink-0
+		/*
+		Shrink-0 ensures the image doesn't shrink. Without this, the image
+		will automatically shrink and overflow will never occur for scroll
+		option to come.
+		*/
+		h-[clamp(20rem,70vw,36rem)] 
+		/* 1rem ~ 16px. 
+		Here, we set the figure min figure height as 20*16=320px
+		And with relatively bigger screens, 70% of the viewport
+		And maximum height to be 36*16~500px. Therefore, figure height
+		is 70% of the screen size but minimum 320px and maximum 500px.
+		*/
+		"
+				>
+					<img
+						src={image.src}
+						class="
+			h-full
+			/*
+			h-full ensures height of the image matches that of the figure inside which it is contained.
+			*/
+			w-auto
+			/*
+			w-auto ensures depending on the height, width proportionately gets calculated.
+			*/
+			object-contains
+			/*
+			object-contains is a guardrail against rare occassion if image gets squashed or stretched disproportionately by browser. I'm not a hundred percent sure about this.
+			*/
+			"
+					/>
+				</figure>
+			))
+		}
+	</div>
+</div>
+<script></script>
