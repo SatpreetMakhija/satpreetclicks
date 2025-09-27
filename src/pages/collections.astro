@@ -6,17 +6,23 @@ import HorizontalGallery from "../components/horizontalGallery.astro";
 
 var commonImagesPath = "/images/";
 
-const images = [
-	{ src: commonImagesPath + "portrait-dog-walking.jpg" },
+const streetImages = [
 	{ src: commonImagesPath + "portrait-man-in-shadows.jpg" },
-	{ src: commonImagesPath + "portrait-woman-walking.jpg" },
+	{ src: commonImagesPath + "portrait-newspaper-man.jpg" },
+	{ src: commonImagesPath + "portrait-flowers.jpg" },
+	{ src: commonImagesPath + "portrait-cylinder-man.jpg" },
+];
 
-	{ src: commonImagesPath + "portrait-auto-driver-sleep.jpg" },
+const peopleImages = [
+	{ src: commonImagesPath + "portrait-amma-pink-saree.jpg" },
+	{ src: commonImagesPath + "portrait-girl-blue-shirt-orange-phone.jpg" },
+	{ src: commonImagesPath + "portrait-creamy-hair-blue-shirt-boy.jpg" },
 ];
 ---
 
 <!-- Below is your "component template." It's just HTML, but with
     some magic sprinkled in to help you build great templates. -->
 <BaseLayout title="Collections">
-	<HorizontalGallery images={images} name="Streets" />
+	<HorizontalGallery images={streetImages} name="Streets" />
+	<HorizontalGallery images={peopleImages} name="People" />
 </BaseLayout>

@@ -42,7 +42,8 @@ const { images = [], name } = Astro.props;
 			/*
 			object-contains is a guardrail against rare occassion if image gets squashed or stretched disproportionately by browser. I'm not a hundred percent sure about this.
 			*/
-			"
+				"
+						loading="lazy"
 					/>
 				</figure>
 			))
